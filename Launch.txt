@@ -3,6 +3,10 @@ class Launch{
 public static void main(String[] args){
    System.out.println("Exploring Git And GitHub");
 }
+public static void add(){
+System.out.println(2+3);
+}
+
 
 }
 
