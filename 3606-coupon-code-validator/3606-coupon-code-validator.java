@@ -68,8 +68,9 @@ class Solution {
                 }
             }
 
-            Collections.sort(temp);   // lexicographical order
+           Collections.sort(temp);   // lexicographical order
             ans.addAll(temp);
+           
         }
 
         return ans;
