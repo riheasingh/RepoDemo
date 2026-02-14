@@ -18,7 +18,7 @@ class Solution {
         // }
         // return sb.toString();
 
-       String result=String.join(" ",str);
-       return result;
+     return String.join(" ",str);
+     
     }
 }
