@@ -26,10 +26,7 @@ class Solution {
             map.put(arr[i],i);
         }
     }
-
-  
-    
-    return ans;
+return ans;
     
  
     }
