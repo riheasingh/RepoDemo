@@ -20,37 +20,35 @@ class Node {
 
 class Solution {
         // Map to store original -> clone mapping
-    HashMap<Node, Node> map = new HashMap<>();
+   HashMap<Node, Node> map=new HashMap<>();
 
     public Node cloneGraph(Node node) {
-        if (node == null) return null;
-
+        if(node==null)return null;
         map.clear();
-
         // create clone of starting node
-        Node cloneNode = new Node(node.val);
-        map.put(node, cloneNode);
+       Node cloneNode=new Node(node.val);
+       map.put(node,cloneNode);
 
         // DFS
-        dfs(node, cloneNode);
+        dfs(node,cloneNode);
+       
 
-        return cloneNode;
+       return cloneNode;
     }
 
     private void dfs(Node node, Node cloneNode) {
-        for (Node neighbor : node.neighbors) {
-
+        
+         for(Node neighbor:node.neighbors){
             // if neighbor not cloned yet
-            if (!map.containsKey(neighbor)) {
-                Node newClone = new Node(neighbor.val);
-                map.put(neighbor, newClone);
-
-                cloneNode.neighbors.add(newClone);
-
-                dfs(neighbor, newClone);
+           if(!map.containsKey(neighbor)){
+              Node newClone=new Node(neighbor.val);
+              map.put(neighbor,newClone);
+              cloneNode.neighbors.add(newClone);
+              dfs(neighbor,newClone);
             } else {
                 // already cloned → just connect
                 cloneNode.neighbors.add(map.get(neighbor));
+                
             }
         }
     }
