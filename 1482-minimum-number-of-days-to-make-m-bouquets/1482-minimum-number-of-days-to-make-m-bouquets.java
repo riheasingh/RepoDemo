@@ -1,6 +1,6 @@
 class Solution {
     // Check if it's possible to make m bouquets on given day
-    private boolean possible(int[] arr, int day, int m, int k) {
+    private int possible(int[] arr, int day, int m, int k) {
         int count = 0;   // consecutive flowers
         int bouquets = 0;
 
@@ -16,7 +16,7 @@ class Solution {
         // for last segment
         bouquets += (count / k);
 
-        return bouquets >= m;
+        return bouquets ;
     }
 
     public int minDays(int[] arr, int m, int k) {
@@ -39,8 +39,8 @@ class Solution {
         // Binary Search
         while (low <= high) {
             int mid = low + (high - low) / 2;
-
-            if (possible(arr, mid, m, k)) {
+             int nOBouquets=possible(arr, mid, m, k);
+            if (nOBouquets>=m) {
                 ans = mid;
                 high = mid - 1; // try smaller day
             } else {
