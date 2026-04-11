@@ -1,17 +1,30 @@
 class Solution {
     public int minimumDistance(int[] nums) {
-        int min=Integer.MAX_VALUE;
-        if(nums.length<=2)return -1;
-        for(int i=0;i<nums.length;i++){
-            for(int j=i+1;j<nums.length;j++){
-                for(int k=j+1;k<nums.length;k++){
-                    if(nums[i]==nums[j] && nums[j]==nums[k]){
-                        int good=Math.abs(i-j)+Math.abs(i-k)+Math.abs(j-k);
-                        min=Math.min(min,good);
-                    }
+       Map<Integer, List<Integer>> map = new HashMap<>();
+
+        // Step 1: store indices
+        for (int i = 0; i < nums.length; i++) {
+            if (!map.containsKey(nums[i])) {
+                map.put(nums[i], new ArrayList<>());
+            }
+            map.get(nums[i]).add(i);
+        }
+
+        int min = Integer.MAX_VALUE;
+
+        // Step 2: check each group
+        for (List<Integer> list : map.values()) {
+            if (list.size() >= 3) {
+                for (int i = 0; i + 2 < list.size(); i++) {
+                    int a = list.get(i);
+                    int c = list.get(i + 2);
+
+                    int dist = 2 * (c - a);
+                    min = Math.min(min, dist);
                 }
             }
         }
-        return min=(min==Integer.MAX_VALUE)?-1:min;
+
+        return min == Integer.MAX_VALUE ? -1 : min;
     }
 }
