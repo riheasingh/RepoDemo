@@ -15,10 +15,8 @@ class Solution {
             }
         }
         else{
-           for(int i=1;i<=9;i++){
-                if(i==2|| i==5|| i==6 || i==9)count++;
-            } 
-            for(int i=10;i<=n;i++){
+           
+            for(int i=1;i<=n;i++){
                 int no=i;
                 boolean invalid=false;
                 boolean good=false;
