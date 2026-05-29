@@ -1,25 +1,42 @@
 class Solution {
     public int reverse(int x) {
-        int rev = 0;
-        
-        while (x != 0) {
-            int digit = x % 10;
-            x = x / 10;
+        // int rev = 0;
 
-            // Check overflow
-            if (rev > Integer.MAX_VALUE / 10 || 
-               (rev == Integer.MAX_VALUE / 10 && digit > 7)) {
-                return 0;
-            }
+        // while (x != 0) {
+        //     int digit = x % 10;
+        //     x = x / 10;
 
-            if (rev < Integer.MIN_VALUE / 10 || 
-               (rev == Integer.MIN_VALUE / 10 && digit < -8)) {
-                return 0;
-            }
+        //     // Check overflow
+        //     if (rev > Integer.MAX_VALUE/10 || 
+        //        (rev == Integer.MAX_VALUE/10 && digit > 7)) {
+        //         return 0;
+        //     }
+        //     if (rev < Integer.MIN_VALUE/10 || 
+        //        (rev == Integer.MIN_VALUE/10 && digit < -8)) {
+        //         return 0;
+        //     }
 
-            rev = rev * 10 + digit;
+        //     rev = rev * 10 + digit;
+        // }
+
+        // return rev;
+         if (x == Integer.MIN_VALUE)return 0;
+        String s="";
+        if(x<0){
+            s+='-';
+            x=-x;
         }
         
-        return rev;
+        while(x!=0){
+            s+=x%10;
+            x/=10;
+        }
+        try {
+            return Integer.parseInt(s);
+        } 
+        catch (Exception e) {
+            return 0;
+        }
+
     }
 }
