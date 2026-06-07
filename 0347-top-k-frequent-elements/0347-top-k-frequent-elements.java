@@ -3,17 +3,19 @@ class Solution {
         HashMap<Integer,Integer> map=new HashMap<>();
         for(int i=0;i<nums.length;i++){
             map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+
         }
-        PriorityQueue<Integer> pq=new PriorityQueue<>((a,b)->map.get(b)-map.get(a));
-        //pq.addAll(map.keySet());
-        for (int key : map.keySet()) {
-               pq.add(key);
+        PriorityQueue<int[]> pq=new PriorityQueue<>((a,b)->a[0]-b[0]);
+        for(int key:map.keySet()){
+            int freq=map.get(key);
+            pq.add(new int[]{freq,key});
+            if(pq.size()>k)pq.remove();
         }
         int[] ans=new int[k];
         for(int i=0;i<k;i++){
-            ans[i]=pq.poll();
+          int[] arr=pq.remove();
+          ans[i]=arr[1];
         }
         return ans;
-
     }
 }
