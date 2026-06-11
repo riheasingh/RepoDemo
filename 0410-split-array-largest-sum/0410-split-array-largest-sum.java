@@ -29,11 +29,11 @@ class Solution {
         int sum = 0;
 
         for (int num : nums) {
-            if (sum + num <=mid) {
-                sum += num;
-            } else {
+            sum+=num;
+            if(sum>mid){
                 count++;
-                sum = num;
+                sum=num;
+
             }
         }
 
