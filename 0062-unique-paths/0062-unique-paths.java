@@ -2,7 +2,7 @@ class Solution {
     //Recursion +Memoisation
 
     public int path(int sr,int sc,int er,int ec,int[][]dp){
-        if(sr==er || sc==ec)return 0;
+        // if(sr==er || sc==ec)return 0;
         if(sr==er-1 || sc==ec-1) return 1;
         if(dp[sr][sc]!=-1) return dp[sr][sc];
         int downways=path(sr+1,sc,er,ec,dp);
