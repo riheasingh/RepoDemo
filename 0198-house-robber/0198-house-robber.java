@@ -1,15 +1,15 @@
 class Solution {
-    public int robMoney(int[] nums,int idx,int[] dp){
-        if(idx<0) return 0;
-        if(idx==0) return nums[idx];
-        if(dp[idx]!=-1) return dp[idx];
-        return dp[idx]=Math.max(nums[idx]+robMoney(nums,idx-2,dp),robMoney(nums,idx-1,dp));
+    public int maxAmount(int i,int[] nums,int[] dp){
+        if(i>=nums.length)return 0;
+        if(dp[i]!=-1)return dp[i];
+        int take=nums[i]+maxAmount(i+2,nums,dp);
+        int skip=maxAmount(i+1,nums,dp);
+        return dp[i]=Math.max(take,skip);
     }
-    public int rob(int[] nums) {
-    int n=nums.length;
-    int dp[]=new int[n];
-    Arrays.fill(dp,-1);
-    return robMoney(nums,n-1,dp);
-        
+   public int rob(int[] nums) {
+       int n=nums.length;
+       int[] dp=new int[n];
+       Arrays.fill(dp,-1);
+        return maxAmount(0,nums,dp);
     }
 }
