@@ -10,12 +10,11 @@ class Solution {
             else pos[k++]=nums[i];
         }
         int[] res=new int[n];
-        int l=0;
-        int m=0;
-        while(l<n/2){
-            res[m++]=pos[l];
-            res[m++]=neg[l++];
-        }
+        int t=0;
+       for(int l=0;l<n/2;l++){
+        res[t++]=pos[l];
+        res[t++]=neg[l];
+       }
         return res;
         
     }
