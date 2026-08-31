@@ -1,6 +1,6 @@
 class Solution {
     public String longestPalindrome(String s) {
-        int n=s.length();
+       int n=s.length();
        int start =0;
         int maxLen=1;
         int[][] dp=new int[n][n]; 
