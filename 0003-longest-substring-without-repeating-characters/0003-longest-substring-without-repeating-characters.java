@@ -28,9 +28,9 @@ class Solution {
                 if(set.contains(ch)) break;
                 set.add(ch);
                 c++;
-               // max=Math.max(max,j-i+1);
+                max=Math.max(max,j-i+1);
             }
-            max=Math.max(max,c);
+            //max=Math.max(max,c);
         }
         return max;
 
